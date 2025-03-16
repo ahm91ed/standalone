@@ -1,0 +1,125 @@
+
+
+      <section class="row boxShadow">
+
+        <figure class="col-lg-6">
+            <img src="./assets/images/signup-image.jpg" alt="register" class="w-75">
+          </figure>
+
+
+        <div class="col-lg-6">
+
+
+          <div class="d-flex justify-content-center align-items-center flex-column">
+              <h3 class="fs-2 mb-5">Welcome to Register</h3>
+              <p *ngIf="errMsg" class="text-danger fa-beat"> {{errMsg}}</p>
+            </div>
+
+            <!-- ==============  Register form ================ -->
+
+
+             <form [formGroup]="registerForm"  (ngSubmit)="handleRegister(registerForm)"   >
+
+             <!-- ============== user name and handle error ================ -->
+        
+                <div class="d-flex  mb-4  align-items-center">
+                    <label for="nameInput" class="me-2"> <i class="fa-solid fa-user"></i> </label>
+                    <input #nameInput id="nameInput" type="text"  placeholder="user name" formControlName="name">
+                  </div>
+
+                  <div class="text-center" *ngIf="registerForm.get('name')?.errors && ( registerForm.get('name')?.touched || nameInput.value.length > 0 )">
+                    <p *ngIf="registerForm.get('name')?.getError('required')" class="text-danger">* Sorry, Name is Required</p>
+                    <p *ngIf="registerForm.get('name')?.getError('minlength')" class="text-danger">* Sorry, Min length is 3 letters</p>
+                    <p *ngIf="registerForm.get('name')?.getError('maxlength')" class="text-danger">* Sorry, Max Length is 20 letters </p>
+                  </div>
+        
+        
+                    <!-- ==============  user email and handle error ================ -->
+        
+        
+                <div class="d-flex  mb-4 align-items-center">
+                  <label for="emailInput" class="me-2"> <i class="fa-solid fa-envelope"></i> </label>
+                  <input #emailInput id="emailInput" type="email"  placeholder="user email" formControlName="email">
+                </div>
+
+                <div class="text-center" *ngIf="registerForm.get('email')?.errors && ( registerForm.get('email')?.touched || emailInput.value.length > 0 )">
+                    <p *ngIf="registerForm.get('email')?.getError('required')" class="text-danger">* Sorry, Email is Required</p>
+                    <p *ngIf="registerForm.get('email')?.getError('email')" class="text-danger">* please input Email with a valid format</p>
+                  </div>
+        
+        
+        
+                    <!-- ==============  user password and handle error  ================ -->
+        
+        
+                <div class="d-flex  mb-4 align-items-center w-100 ">
+                  <label for="passwordInput" class="me-2"> <i class="fa-solid fa-lock"></i> </label>
+                  <input #passwordInput id="passwordnput" type="password"  placeholder="user password" formControlName="password">
+                </div>
+
+                <div class="text-center" *ngIf="registerForm.get('password')?.errors && ( registerForm.get('password')?.touched || passwordInput.value.length > 0 )">
+                    <p *ngIf="registerForm.get('password')?.getError('required')" class="text-danger">* Sorry, password is Required</p>
+                    <p *ngIf="registerForm.get('password')?.getError('pattern')" class="text-danger">
+                        
+
+                        * Sorry, password must consists of at least 9 characters including capital letters or small letters or numbers <br/>
+
+                    </p>
+                  </div>
+        
+        
+                    <!-- ==============  user rePassword and handle error  ================ -->
+        
+        
+                <div class="d-flex  mb-4 align-items-center w-100 ">
+                    <label for="rePasswordInput" class="me-2"> <i class="fa-solid fa-lock"></i> </label>
+                    <input #rePasswordInput id="rePasswordInput" type="password"  placeholder="user rePassword"  formControlName="rePassword">
+                  </div>
+
+                  <div class="text-center" *ngIf="registerForm.get('rePassword')?.errors && ( registerForm.get('rePassword')?.touched || rePasswordInput.value.length > 0 )">
+                    <p *ngIf="registerForm.get('rePassword')?.getError('required')" class="text-danger">* Sorry, rePassword is Required</p>
+                    <p *ngIf="registerForm.get('rePassword')?.getError('mismatch')" class="text-danger">* Password confirmation is incorrect </p>
+                  </div>
+        
+        
+                    <!-- ============== user phone and handle error  ================ -->
+        
+        
+                  <div class="d-flex mb-4 align-items-center ">
+                    <label for="phoneInput" class="me-2"> <i class="fa-solid fa-phone"></i> </label>
+                    <input #phoneInput id="phoneInput"  type="tel"  placeholder="user phone" formControlName="phone" >
+                  </div>
+
+                  <div class="text-center mb-4" *ngIf="registerForm.get('phone')?.errors && ( registerForm.get('phone')?.touched || phoneInput.value.length > 0 )">
+                    <p *ngIf="registerForm.get('phone')?.getError('required')" class="text-danger">* Sorry, phone is Required</p>
+                    <p *ngIf="registerForm.get('phone')?.getError('pattern')" class="text-danger">* Sorry, accept only egypt phone numbers</p>
+                  </div>
+              
+        
+              
+        
+        
+                <!-- ==============  Register button ================ -->
+        
+                
+        
+                  <div class="d-flex flex-column align-items-center justify-content-center">
+        
+                    <button [disabled]="registerForm.invalid" class="myButton mb-3">Register
+                         <i *ngIf="registerSpinner" class="fas fa-spinner fa-spin"></i> </button>
+                    <p *ngIf="navigateLogin" class="text-muted">Acount already exist? <a class="text-info" routerLink="/login">login</a> </p>
+          
+                  </div>
+              
+             </form>
+           
+        
+            
+        </div>
+       
+      </section>
+
+
+
+ 
+  

@@ -1,0 +1,17 @@
+
+<section *ngIf="brandData" class="bg-light w-75 mx-auto rounded-3 mt-4 p-4">
+
+    <h2>Brand Details</h2>
+    <div class="row  mt-4 py-4  align-items-center">
+        <div class="col-md-4">
+            
+                <figure>
+                    <img class="w-100 rounded-2" [src]="brandData.image" [alt]="brandData.name" >
+                </figure>
+        </div>
+
+        <div class="col-md-8 text-center">
+            <h5 class="h3">{{brandData.name}}</h5>
+        </div>
+    </div>
+</section>

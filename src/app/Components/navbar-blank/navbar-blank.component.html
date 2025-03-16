@@ -1,0 +1,64 @@
+
+<nav #navBar class="navbar navbar-expand-lg bg-light d-flex justify-content-between align-items-center fixed-top top-0 start-0 end-0">
+    <div class="container-fluid">
+  
+      <a class="navbar-brand fw-bold" routerLink=""> <img src="./assets/images/freshcart-logo.svg" class="w-100" alt="logo"> </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+  
+        <ul class="navbar-nav mx-auto  mb-lg-0 d-flex justify-content-center align-items-center">
+            
+            <li class="nav-item text-capitalize">
+                <a class="nav-link" routerLinkActive="active-link" routerLink="home" > home </a>
+            </li>
+         
+            <li class="nav-item text-capitalize">
+                <a class="nav-link" routerLinkActive="active-link" routerLink="categories" > categories </a>
+            </li>
+            <li class="nav-item text-capitalize">
+                <a class="nav-link" routerLinkActive="active-link" routerLink="brands" > brands </a>
+            </li>
+
+            <li class="nav-item text-capitalize">
+                <a class="nav-link" routerLinkActive="active-link" routerLink="wishlist" > wishlist </a>
+            </li>
+
+            <li class="nav-item text-capitalize">
+                <a class="nav-link" routerLinkActive="active-link" routerLink="products" > products </a>
+            </li>
+       
+        </ul>
+
+        <ul class="navbar-nav ms-auto  mb-lg-0 d-flex justify-content-center align-items-center">
+
+
+        
+           
+
+        
+
+         
+
+             <li class="nav-item text-capitalize">
+                <a class="nav-link me-3 position-relative"  routerLink="cart" >
+                    <span class="badge bg-main position-absolute top-0 start-0">{{cartNumberNavbar}}</span>
+                    <i class="fa-solid fa-cart-shopping text-muted fa-2x"></i>
+                 </a>
+            </li>
+
+             <span *ngIf="userName" class="text-muted h6 mb-0 fw-bold me-3">Hi, {{ userName.name}}</span>
+
+            <a class="nav-link text-danger fw-bold cursor-pointer" (click)="logOut()" > logout </a>
+    
+     
+      </ul>
+  
+      </div>
+    </div>
+  </nav>
+  
+  

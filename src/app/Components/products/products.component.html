@@ -1,0 +1,67 @@
+<section *ngIf="allPoducts.length > 0" class=" p-4 mt-4 rounded-2 ">
+
+    <h2 class="mb-4">All Products</h2>
+
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-3 h-100" *ngFor="let product of allPoducts | paginate:
+         { id: 'paginateId',
+        itemsPerPage: itemsInPage,
+        currentPage: currentPage,
+        totalItems: total } ">
+
+
+            <!--  Products -->
+            <div class="product position-relative h-100" >
+
+                <!-- main layer -->
+
+                <div class="main-layer" [routerLink]="['/details', product._id]" >
+
+
+                    <figure>
+                        <img class="w-100" [src]="product.imageCover" [alt]="product.title" >
+                    </figure>
+                   
+                    <figcaption class="p-2">
+                        <h3 class="h6 fw-bold text-primary">{{product.title | cuttext:3}}</h3>
+                        <h3 class="h6 fw-bold">{{product.category.name}}</h3>
+                    </figcaption>
+                    <hr/>
+    
+                    <div class="product-tail d-flex justify-content-between align-items-center  p-2">
+                        <span class="fw-bold text-muted">{{product.price}} EGP </span>
+                        <span> <i [class.text-warning]="product.ratingsAverage >= star" *ngFor="let star of [1,2,3,4,5]" class="fas fa-star"></i> </span>
+                    </div>
+                  
+                </div>
+
+                <!-- side icons -->
+
+                <div class="layer-product d-flex flex-column justify-content-evenly align-items-center   rounded-2">
+
+                    <i (click)="addProductToCart(product._id)" class="fa-solid fa-cart-shopping color-main fa-xl" title="add to cart"></i>
+                    <i *ngIf="!wishlistData.includes(product._id)" (click)="addToWishlist(product._id)" class="fa-regular fa-heart text-danger fa-xl" title="add to wishlist "></i>
+                    <i *ngIf="wishlistData.includes(product._id)" (click)="removeFromWishlist(product._id)" class="fa-solid fa-heart text-danger fa-xl" title="remove from wishlist "></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center py-2 mt-4 ">
+        <pagination-controls  id="paginateId"
+        (pageChange)="pageChanged($event)"
+        (pageBoundsCorrection)="pageChanged($event)"
+        [maxSize]="9"
+        [directionLinks]="true"
+        [autoHide]="true"
+        [responsive]="true"
+        previousLabel="Previous"
+        nextLabel="Next"
+        screenReaderPaginationLabel="Pagination"
+        screenReaderPageLabel="page"
+        screenReaderCurrentLabel="You're on page">
+        </pagination-controls>
+    </div>
+
+</section>

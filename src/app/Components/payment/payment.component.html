@@ -1,0 +1,24 @@
+<section class="w-75 mx-auto bg-light rounded-2 p-4 mt-4 text-center">
+
+    <h3 class="color-main">Online Payment</h3>
+    <form [formGroup]="paymentForm" (ngSubmit)="handlePaymentForm(paymentForm)">
+
+        <div>
+            <label for="details"></label>
+            <input id="details" type="text"  class="form-control mt-2"  formControlName="details" placeholder="details">
+        </div>
+
+        <div>
+            <label for="phone"></label>
+            <input id="phone" type="tel"  class="form-control mt-2"  formControlName="phone" placeholder="phone">
+        </div>
+
+        <div>
+            <label for="city"></label>
+            <input id="city" type="text"  class="form-control mt-2"  formControlName="city" placeholder="city">
+        </div>
+
+        <button class="myButton m-4"> CheckOut </button>
+
+    </form>
+</section>

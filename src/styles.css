@@ -1,0 +1,167 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root
+{
+    --main-color:#1ABC9C ;
+    --second-color: #0D6EFD ;
+    --third-color: #0DCAF0 ;
+    --fourth-color:#F7ECDE;
+    --important-color : #FF305B;
+    --font-family : "Exo", sans-serif; 
+    --main-margin: 3rem;
+    --main-padding: 3rem;
+}
+
+
+.color-main
+{
+    color: var(--main-color);
+}
+
+.color-second
+{
+    color: var(--second-color);
+}
+
+.important-color{
+    color: var(--important-color);
+}
+
+
+
+.bg-main
+{
+    background-color: var(--main-color);
+}
+
+
+.active-link{
+    background-color: var(--main-color) !important;
+    color: #fff !important;
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    border-radius: 8px;
+    padding: 5px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.cursor-pointer
+{
+    cursor: pointer;
+}
+
+input
+{
+    width: 100%;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 6px 30px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+}
+
+.boxShadow {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 20px;
+    padding: 50px;
+  }
+
+
+    
+.myButton
+{
+    
+    border: 2px solid var(--main-color) ;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--main-color);
+    transition: all 1s;
+    
+
+}
+
+
+.myButton:hover
+{
+    color: white ;
+    background-color: var(--main-color);
+    
+}
+
+
+.myButton:disabled
+{
+    cursor: not-allowed;
+
+} 
+
+.myButton:disabled:hover
+{
+    background-color: white;
+    color: var(--main-color);
+
+}
+
+
+.product {
+    border-radius: 5px;
+    border: solid 1px var(--main-color);
+    transition: box-shadow 0.5s;
+    overflow: hidden;
+  }
+
+  
+.product:hover {
+    box-shadow: 0 0 10px var(--main-color);
+    cursor: pointer;
+  }
+
+
+  ::-webkit-scrollbar{
+    width: 15px;
+  }
+
+  ::-webkit-scrollbar-track{
+    background-color: #C6C6C6;
+  }
+
+  ::-webkit-scrollbar-thumb{
+    background-color: var(--main-color)
+  }
+  
+
+  .layer-product{
+    position: absolute;
+    /* background-color: rgba(128, 128, 128, 0.3); */
+    top: 30%;
+    left:5px;
+    width: 15%;
+    height: 30%;
+    transform: translateX(-120%);
+    transition: all 1s;
+    overflow: hidden;
+}
+
+
+.product:hover .layer-product{
+
+    transform: translateX(0);
+
+}

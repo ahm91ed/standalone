@@ -1,0 +1,17 @@
+
+:root{
+    --main-color:#1ABC9C
+}
+
+
+.color-main
+{
+    color: var(--main-color);
+}
+
+
+button:disabled
+{
+
+    cursor: not-allowed;
+}

@@ -1,0 +1,22 @@
+
+
+
+:root{
+    --main-color:#1ABC9C ;
+    --second-color : #0D6EFD ;
+
+}
+
+#buttonUp{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: var(--main-color);
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
